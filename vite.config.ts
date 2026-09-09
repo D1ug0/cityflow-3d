@@ -1,0 +1,19 @@
+import { fileURLToPath, URL } from 'node:url';
+import { defineConfig } from 'vitest/config';
+import vue from '@vitejs/plugin-vue';
+export default defineConfig({
+  plugins: [vue()],
+  resolve: { alias: { '@': fileURLToPath(new URL('./src', import.meta.url)) } },
+  test: { environment: 'node', include: ['tests/**/*.test.ts'] },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          maplibre: ['maplibre-gl'],
+          three: ['three'],
+          vue: ['vue', 'pinia', 'vue-router'],
+        },
+      },
+    },
+  },
+});
