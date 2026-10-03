@@ -121,7 +121,6 @@ Three.js подключён как Custom Layer MapLibre и использует
 - triangles;
 - visible instances;
 - количество объектов;
-- DPR.
 
 </td>
 
